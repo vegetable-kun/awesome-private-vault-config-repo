@@ -1,0 +1,10 @@
+---
+id: prefer-table-answers
+trigger: when user asks for comparison
+action: Use markdown table with max 5 columns; bold key info
+domain: communication
+confidence: 0.7
+scope: global
+created: 2026-08-29
+evidence: 1
+last_observed: 2026-08-29

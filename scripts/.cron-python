@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Hermes cron 专用 Python 解释器入口。
+#
+# 指向 `hermes pm environment cron` 建的隔离环境（HERMES_HOME/environments/cron），
+# 该环境随 requirements 内容寻址，重建后 generation 目录名会变，所以这里按
+# active.json 解析当前 generation，而不是写死路径。
+#
+# 用法：.cron-python script.py [args...]   或作为 shebang
+set -euo pipefail
+
+ENV_DIR="$HOME/.hermes/environments/cron"
+PY=""
+
+if [[ -f "$ENV_DIR/active.json" ]]; then
+  gen=$(sed -n 's/.*"generation"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$ENV_DIR/active.json" | head -1)
+  if [[ -n "$gen" && -x "$ENV_DIR/$gen/venv/bin/python" ]]; then
+    PY="$ENV_DIR/$gen/venv/bin/python"
+  fi
+fi
+
+# 兜底：active.json 缺失或指向已失效的 generation 时，取任意可用的 generation
+if [[ -z "$PY" ]]; then
+  for p in "$ENV_DIR"/gen-*/venv/bin/python; do
+    if [[ -x "$p" ]]; then PY="$p"; break; fi
+  done
+fi
+
+if [[ -z "$PY" ]]; then
+  echo "cron-python: no interpreter in $ENV_DIR (run: hermes pm environment cron ...)" >&2
+  exit 127
+fi
+
+exec "$PY" "$@"
