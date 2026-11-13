@@ -92,7 +92,7 @@ hermes-config/
 
 **尚未纳入**：
 
-- `skills/`：约 58 MB，含大量第三方上游技能包。`sync.sh` 已预留同步行，
-  首次全量同步时会一并纳入（体积较大，建议先确认）。
+- `skills/`：约 58 MB，含大量第三方上游技能包。**不自动同步**（`sync.sh` 已移除该行）；
+  如需纳入指定技能，可手动 `rsync` 后单独提交。
 - **永不纳入**（敏感 / 运行时内容）：`config.yaml`、`.env`、`auth.json`、
   `sessions/`、`state.db`、`logs/`、`cache/` 等。

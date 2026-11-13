@@ -17,10 +17,12 @@ cp -a "$SRC/AGENTS.md" "$SRC/SOUL.md" "$DST/"
 rsync -a --delete --exclude='*.lock' \
   "$SRC/memories/" "$DST/memories/"
 
-rsync -a --delete \
-  --exclude='.venv/' --exclude='__pycache__/' \
-  --exclude='.hub/' --exclude='.curator_backups/' \
-  "$SRC/skills/" "$DST/skills/"
+# 注意：skills/ 不自动同步（约 58 MB，含大量第三方上游技能包）。
+# 如需纳入指定技能，取消下面注释并自行限定范围：
+# rsync -a --delete \
+#   --exclude='.venv/' --exclude='__pycache__/' \
+#   --exclude='.hub/' --exclude='.curator_backups/' \
+#   "$SRC/skills/" "$DST/skills/"
 
 rsync -a --delete \
   --exclude='.venv/' --exclude='__pycache__/' \
