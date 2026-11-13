@@ -1,0 +1,356 @@
+{
+  "jobs": [
+    {
+      "id": "d127f4d3f8e0",
+      "name": "工作日早晨提醒",
+      "prompt": "给用户一个简短的工作日早晨提醒：\n1.今天的日程以及从最近的情况和任何任务工具中推测出的1-3件最高优先事项。鼓励性质，简短，信息集中。\n2.搜索https://github.com/NousResearch/hermes-agent/releases项目是否发布新版本(一天之内），不管是否更新都精简输出一句话表示。",
+      "skills": [],
+      "skill": null,
+      "model": "thinkingmachines/inkling-2-small:free",
+      "provider": "openrouter",
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * *",
+        "display": "0 12 * * *"
+      },
+      "schedule_display": "0 12 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 121
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-07-22T12:48:28.094606+08:00",
+      "next_run_at": "2026-11-14T12:00:00+08:00",
+      "last_run_at": "2026-11-13T12:02:47.489652+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "qqbot",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null,
+      "failure_streak": 0,
+      "last_dispatch": {
+        "scheduled_at": "2026-11-13T12:00:00+08:00",
+        "dispatched_at": "2026-11-13T12:00:59.021967+08:00",
+        "lateness_seconds": 59.0,
+        "kind": "on_time"
+      },
+      "canonical_completions": [
+        "d65ebecbbfab468696d4121b628a54ce"
+      ],
+      "last_failure": {
+        "at": "2026-11-11T12:00:51.365757+08:00",
+        "detail": "RuntimeError: HTTP 404: This model's free period has ended. To continue using Beam 1.0, switch to 'reflection/beam-1.0-501b-a23b'."
+      }
+    },
+    {
+      "id": "6c80edbd1e30",
+      "name": "广州番禺天气预报",
+      "prompt": "发送广州市番禺区天气预报给 QQ 用户 57544CD377342E3D0BDDA7ABE789C15E。\n\n运行 `python3 ~/.hermes/scripts/panyu_weather.py` 获取天气数据和中国气象信息，分析后整理成简洁的天气预报。\n\n输出格式：markdown格式的简洁的天气信息 + 精简的中国气象信息 + 温馨提示，适当用emoji表达。\n开头模板：🌤️ 早上好！今天是<日期>，广州番禺天气预报来啦~\n结尾使用简洁且幽默风趣的两句话温馨提示天气总览，作为收尾。",
+      "skills": [],
+      "skill": null,
+      "model": "thinkingmachines/inkling-2-small:free",
+      "provider": "openrouter",
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *",
+        "display": "0 9 * * *"
+      },
+      "schedule_display": "0 9 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 108
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-07-31T09:14:01.360019+08:00",
+      "next_run_at": "2026-11-14T09:00:00+08:00",
+      "last_run_at": "2026-11-13T11:27:07.591537+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "qqbot",
+      "origin": {
+        "platform": "qqbot",
+        "chat_id": "57544CD377342E3D0BDDA7ABE789C15E",
+        "chat_name": null,
+        "thread_id": null,
+        "user_id": "57544CD377342E3D0BDDA7ABE789C15E"
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null,
+      "failure_streak": 0,
+      "last_dispatch": {
+        "scheduled_at": "2026-11-13T09:00:00+08:00",
+        "dispatched_at": "2026-11-13T11:25:59.063735+08:00",
+        "lateness_seconds": 8759.1,
+        "kind": "catch_up"
+      },
+      "canonical_completions": [
+        "a9328167c5ff43b6907b42b79bad499e"
+      ],
+      "last_failure": {
+        "at": "2026-11-11T09:00:54.232750+08:00",
+        "detail": "RuntimeError: HTTP 404: This model's free period has ended. To continue using Beam 1.0, switch to 'reflection/beam-1.0-501b-a23b'."
+      }
+    },
+    {
+      "id": "d532d93243a4",
+      "name": "晚间收尾提醒",
+      "prompt": "给用户一条简短的晚间收尾提醒：提醒检查是否有未完成的小事，建议花 2 分钟收尾. 简单回顾今天的完成情况（可选）. 祝好梦，明天见\\n\\n语气温和、简洁，不超过 100 字，中文。不提日历、不提明天行程、不提任何外部数据源。",
+      "skills": [],
+      "skill": null,
+      "model": "thinkingmachines/inkling-2-small:free",
+      "provider": "openrouter",
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "50 23 * * *",
+        "display": "50 23 * * *"
+      },
+      "schedule_display": "50 23 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 105
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-07-31T10:11:17.754483+08:00",
+      "next_run_at": "2026-11-14T23:50:00+08:00",
+      "last_run_at": "2026-11-13T23:50:40.980849+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "qqbot",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null,
+      "failure_streak": 0,
+      "last_dispatch": {
+        "scheduled_at": "2026-11-13T23:50:00+08:00",
+        "dispatched_at": "2026-11-13T23:50:08.582776+08:00",
+        "lateness_seconds": 8.6,
+        "kind": "on_time"
+      },
+      "canonical_completions": [
+        "57f9d4ac008a455db1bf014af75b80d9"
+      ]
+    },
+    {
+      "id": "722796644e0c",
+      "name": "今日 AI 午报（Tavily）",
+      "prompt": "【任务】基于脚本采集的数据生成今日 AI 午报，用 Markdown 格式投递 QQ。\n\n【素材说明】\n采集脚本已由 Hermes 用指定解释器直接执行，其 stdout 已自动注入本次运行的上下文（原始新闻：标题/日期/来源/链接/关键词）。\n若素材为空或少于 5 条，只回复「【采集异常】本次未取到足够素材」并停止。禁止编造、禁止凑数。\n\n【输出模板】\n\n---\n\n【📅 YYYY-MM-DD AI 午报 | 共 15 条】\n\n**🔥 科技/媒体** (N 条)\n\n1. **标题**\n   📅 YYYY-MM-DD | 🔗 URL | 来源: xxx | 🏷 关键词\n   > 🤖 AI 分析：从技术趋势/产业影响/竞争格局等角度分析此新闻的意义（2-3 句）\n\n2. **标题**\n   ...\n\n📝 **分类点评**：本批次科技/媒体新闻的整体趋势和看点（2-3 句）\n\n---\n\n**💬 社区/讨论** (N 条)\n\n1. **标题**\n   📅 YYYY-MM-DD | 🔗 URL | 来源: xxx | 🏷 关键词\n   > 🤖 AI 分析：社区热议的核心争议/价值（2-3 句）\n\n📝 **分类点评**：社区讨论的焦点和风向\n\n---\n\n**📄 学术/论文** (N 条)\n\n1. **标题**\n   📅 YYYY-MM-DD | 🔗 URL | 来源: xxx | 🏷 关键词\n   > 🤖 AI 分析：该研究对领域的影响和局限（2-3 句）\n\n📝 **分类点评**：学术前沿动向\n\n---\n\n**🛠 工具/项目** (N 条)\n\n1. **标题**\n   📅 YYYY-MM-DD | 🔗 URL | 来源: xxx | 🏷 关键词\n   > 🤖 AI 分析：对开发者的实用意义（2-3 句）\n\n📝 **分类点评**：本周值得关注的工具/项目\n\n---\n\n**🏢 官方博客** (N 条)\n\n1. **标题**\n   📅 YYYY-MM-DD | 🔗 URL | 来源: xxx | 🏷 关键词\n   > 🤖 AI 分析：大厂战略/技术路线（2-3 句）\n\n📝 **分类点评**：大厂动态风向\n\n---\n\n📌 **今日要点**\n\n- 要点1：当日最重要的信号\n- 要点2：值得深度关注的方向\n- 要点3：对读者行动/决策的建议\n\n---\n\n【输出要求】\n- 严格按上述模板输出，不增删章节\n- 分析 2-3 句，点评 2-3 句\n- 语言简洁有力，避免空话套话\n- 最终输出直接投递 QQ\n\n【记忆规则（continuity 已开启）】\n- 上一次运行的输出已作为上下文注入，请提取：昨日报道标题列表、标记为\"持续追踪\"的事件。\n- 对昨日已报道且无新进展的事件，仅用一句话标注\"【追踪】xxx，暂无新变化\"即可，不再重复完整条目。\n- 对持续发酵的新闻标注\"【后续】\"并简述今日进展（2-3句）。\n- 无需完整复述旧闻，将思考精力放在新增内容的分析和分类点评上。\n- 输出后，在今日要点中列出\"今日追踪事件\"供明天参考。\n- 搜索降级关键词：AI 大模型 LLM 开源 发布 Github",
+      "skills": [
+        "ai-daily-briefing"
+      ],
+      "skill": "ai-daily-briefing",
+      "model": "thinkingmachines/inkling-2-small:free",
+      "provider": "openrouter",
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "briefing_cron.py",
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 12 * * *",
+        "display": "30 12 * * *"
+      },
+      "schedule_display": "30 12 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 113
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-10T20:58:24.553786+08:00",
+      "next_run_at": "2026-11-14T12:30:00+08:00",
+      "last_run_at": "2026-11-13T12:32:37.816357+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "qqbot",
+      "origin": {
+        "platform": "qqbot",
+        "chat_id": "57544CD377342E3D0BDDA7ABE789C15E",
+        "chat_name": null,
+        "thread_id": null,
+        "user_id": "57544CD377342E3D0BDDA7ABE789C15E"
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null,
+      "failure_streak": 0,
+      "last_dispatch": {
+        "scheduled_at": "2026-11-13T12:30:00+08:00",
+        "dispatched_at": "2026-11-13T12:30:59.006346+08:00",
+        "lateness_seconds": 59.0,
+        "kind": "on_time"
+      },
+      "interpreter": "/home/ecs-assist-user/.hermes/scripts/python3",
+      "canonical_completions": [
+        "c04ff5f21287468a949fc11a2e4c0ae3"
+      ],
+      "last_failure": {
+        "at": "2026-11-11T12:30:49.152621+08:00",
+        "detail": "RuntimeError: HTTP 404: This model's free period has ended. To continue using Beam 1.0, switch to 'reflection/beam-1.0-501b-a23b'."
+      }
+    },
+    {
+      "id": "d060cde8ff11",
+      "name": "下午的热点新闻速览",
+      "prompt": "这是热点新闻速览任务。抓取脚本已由 Hermes 直接执行，其 stdout 已自动注入。\n\n【素材说明】\n抓取脚本（news_fetcher.sh）已由 Hermes 用 bash 直接运行，其 stdout 是 JSON，含 title/source/url/date，约 30 条候选，已自动注入本次运行的上下文。\n若素材为空或少于 5 条，只回复「【采集异常】本次未取到足够素材」并停止。禁止编造、禁止凑数。\n\n【脚本失败处理 · 最高优先级，不可绕过】\n若本次运行的上下文中出现 `## Script Error` 段落（说明抓取脚本执行失败、没有任何真实素材），\n必须只输出下面这一行，然后立即结束：\n\n【采集异常】抓取脚本执行失败\n\n此情形下禁止：\n· 用网页搜索、模型知识储备或任何方式自行补充新闻\n· 凭记忆编写标题、来源、日期或链接\n· 输出平台诊断、降级说明、\"以下为模型整理\"之类的交代\n· 输出除上面那一行以外的任何字符\n\n没有脚本素材 = 没有新闻。哪怕你\"知道\"今天发生了什么，也不许写。\n\n合并所有来源，精选 20 条最有价值的新闻（实际不足 20 条时按真实条数输出，标题行写实际条数，**不要为凑数硬塞低价值条目，也不用解释为什么不足**），按以下格式投递到 QQ。输出格式示例：\n\n📰 热点速览（日期）| 共 20 条\n\n1️⃣【技术/AI】\n{标题}\n| 来源：{平台名} | {日期} |\n| 分析：xxx |\n| {链接} |\n\n2️⃣【热点/综合】\n{标题}\n| 来源：{平台名} | {日期} |\n| 分析：xxx |\n| {链接} |\n\n...（按类型分组，技术 AI 优先排列）\n\n要求：\n\n每条新闻格式：【来源】标题 + 换行 + 日期 + 换行 + 链接\n过滤娱乐八卦、低俗、低价值内容\n优先科技、财经、社会时事热点、国际新闻等事实性新闻、有信息深度的内容\n平台覆盖：优先让多个平台入选（IT之家、少数派、百度热搜、知乎热榜、B站）。\n**这是内部判断，不要在报告里统计或说明各平台入选了几条。**某平台没有合格条目就直接跳过，**严禁输出平台缺口诊断表、数据核对过程或凑数讨论**。\n语气：简洁、不啰嗦。使用简体中文。\n\n【输出纪律 · 最高优先级】\n你的最终响应只包含报告正文本身。\n· 若上下文含 `## Script Error`，忽略本节所有格式要求，只输出「【采集异常】抓取脚本执行失败」。\n· 第一行必须是 `📰` 开头的标题行。\n· 最后一行必须是最后一条新闻的链接，链接之后立即结束，**不得追加任何内容**。\n· 报告写完即停。不要写总结段、平台覆盖统计、条数复核、注释或补充说明。\n· 严禁重复输出已在上文出现过的链接。\n\n严禁出现：筛选过程、保留/淘汰理由、打分表、平台缺口诊断、条数统计、自问自答、置信度说明、结语、总结、以及任何形式的思考草稿。所有取舍判断在内部完成，不要写出来。\n投递说明：\n\n本任务由 Hermes cron 调度运行，最终响应将自动通过 Hermes QQ Bot 平台（官方 QQ Bot）投递给管理员。\n管理员 QQ ID：57544CD377342E3D0BDDA7ABE789C15E\n请直接输出格式文本，无需调用任何消息发送接口（ NapCat 或其他）。\n\n【记忆规则（continuity 已开启）】\n- 上一次运行的输出已作为上下文注入，**只提取其中已报道的新闻标题**用于去重。\n- **忽略上一轮的筛选过程、诊断、计数和格式**；不要模仿、不要复述、不要延续上一轮的写法。\n- 对今日已报道且无新进展的热点，仅用一句话标注\"【追踪】xxx，暂无新变化\"即可，不再重复完整条目。\n- 对持续发酵的热点标注\"【追踪】\"并简述最新进展（2-3句）。\n- 无需完整复述旧闻，将思考精力放在新增内容的分析和分类上。\n- 搜索降级关键词：热点新闻 科技 AI 财经 国际 社会时事",
+      "skills": [],
+      "skill": null,
+      "model": "thinkingmachines/inkling-2-small:free",
+      "provider": "openrouter",
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "news_fetcher.sh",
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": [
+        "self"
+      ],
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 14 * * *",
+        "display": "0 14 * * *"
+      },
+      "schedule_display": "0 14 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 102
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-15T22:20:02.822658+08:00",
+      "next_run_at": "2026-11-14T14:00:00+08:00",
+      "last_run_at": "2026-11-13T14:07:16.372089+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "qqbot",
+      "origin": {
+        "platform": "qqbot",
+        "chat_id": "57544CD377342E3D0BDDA7ABE789C15E",
+        "chat_name": null,
+        "thread_id": null,
+        "user_id": "57544CD377342E3D0BDDA7ABE789C15E"
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null,
+      "failure_streak": 0,
+      "last_dispatch": {
+        "scheduled_at": "2026-11-13T14:00:00+08:00",
+        "dispatched_at": "2026-11-13T14:00:59.026903+08:00",
+        "lateness_seconds": 59.0,
+        "kind": "on_time"
+      },
+      "last_failure": {
+        "at": "2026-11-11T14:01:11.283625+08:00",
+        "detail": "RuntimeError: HTTP 404: This model's free period has ended. To continue using Beam 1.0, switch to 'reflection/beam-1.0-501b-a23b'."
+      },
+      "canonical_completions": [
+        "c111a30a0bdf422fa480c48b993c818d"
+      ]
+    },
+    {
+      "id": "705f784b1e4a",
+      "name": "投递简历",
+      "prompt": "给用户提醒并指导关于投递简历的内容. 在之前的经验教训的基础上再接再厉，使其不断进步，而不是重复。用1-3句话激励用户并提醒他开始投递实习岗位。",
+      "skills": [],
+      "skill": null,
+      "model": "thinkingmachines/inkling-2-small:free",
+      "provider": "openrouter",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "5 14 * * *",
+        "display": "5 14 * * *"
+      },
+      "schedule_display": "5 14 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 18
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-10-29T12:23:03.044638+08:00",
+      "next_run_at": "2026-11-14T14:05:00+08:00",
+      "last_run_at": "2026-11-13T14:08:20.012621+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "last_failure": {
+        "at": "2026-11-12T14:07:32.979554+08:00",
+        "detail": "Cron execution unverified; reconcile /home/ecs-assist-user/.hermes/cron/admissions/85449a9156490c96eafd22ea6c496482816971b75a0c82d48bc3df694457d404.json: Gateway connection failed; no local fallback"
+      },
+      "failure_streak": 0,
+      "deliver": "qqbot",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-11-13T14:05:00+08:00",
+        "dispatched_at": "2026-11-13T14:05:59.039801+08:00",
+        "lateness_seconds": 59.0,
+        "kind": "on_time"
+      },
+      "fire_claim": null,
+      "canonical_completions": [
+        "9ba45be4c47f4b03a61b29e76fe973b5"
+      ]
+    }
+  ],
+  "updated_at": "2026-11-13T23:50:42.754688+08:00"
+}

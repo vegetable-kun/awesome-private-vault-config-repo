@@ -1,0 +1,22 @@
+# ===== Hermes 运行时状态（不入库）=====
+*.lock
+*.bak*
+__pycache__/
+*.pyc
+.DS_Store
+
+# Python 虚拟环境 / 缓存
+.venv/
+.hub/
+.curator_backups/
+
+# cron 运行产物（若复制整个 cron/ 目录时生效）
+cron/output/
+cron/state/
+cron/*.db
+cron/*.jsonl
+cron/ticker_*
+cron/external-workers/
+
+# 归档
+*.tar.gz
