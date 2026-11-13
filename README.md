@@ -1,0 +1,98 @@
+# hermes-config
+
+Hermes Agent 配置与知识库的镜像仓库。
+
+把本机 `~/.hermes/` 下由 Hermes 生成和维护的内容，**单向同步**备份到 GitHub，
+用于版本管理、跨机恢复与成果展示。
+
+> **同步方向**：`~/.hermes/`（源） → 本仓库（副本）。
+> 本仓库不反向写入 `~/.hermes/`。在本地修改配置后，运行 `sync.sh` 即可更新仓库。
+
+---
+
+## 目录结构
+
+```
+hermes-config/
+├── .gitignore                  # 排除运行时状态 / 虚拟环境 / 缓存
+├── README.md                   # 本文件
+├── sync.sh                     # 同步脚本：复制 → 提交 → 推送
+├── AGENTS.md                   # Agent 行为规范
+├── SOUL.md                     # Agent 人格与沟通风格
+├── memories/                   # 记忆存储
+│   ├── MEMORY.md               #   长期记忆（环境、工具经验、约定）
+│   ├── USER.md                 #   用户画像（偏好、背景、交付习惯）
+│   └── personal.yaml           #   单条偏好记忆（trigger / action 结构）
+├── scripts/                    # 定时任务依赖脚本
+│   ├── news_fetcher.py         #   新闻抓取
+│   ├── news_fetcher_v4.py      #   新闻抓取 v4
+│   ├── news_processor.py       #   新闻处理
+│   ├── briefing_cron.py        #   AI 简报定时任务
+│   ├── cf-ip-refresh.sh        #   Cloudflare 边缘 IP 刷新
+│   ├── news_fetcher.sh         #   新闻抓取 shell 入口
+│   ├── panyu_weather.py        #   广州番禺天气查询
+│   ├── python3                 #   cron 专用 Python 解释器入口
+│   ├── .cron-python            #   同上（内容与 python3 相同）
+│   └── tavily_shim/            #   Tavily 调用 shim
+└── cron/
+    └── jobs.json               # 定时任务定义与 prompt
+```
+
+---
+
+## 内容来源
+
+| 仓库路径 | 源位置（`~/.hermes/`） | 说明 |
+|---|---|---|
+| `AGENTS.md` | `AGENTS.md` | 工作优先级、任务流程、授权范围等行为规范 |
+| `SOUL.md` | `SOUL.md` | 人格语气、核心原则、回应风格 |
+| `memories/MEMORY.md` | `memories/MEMORY.md` | 长期记忆条目 |
+| `memories/USER.md` | `memories/USER.md` | 用户画像 |
+| `memories/personal.yaml` | `memories/personal.yaml` | 偏好记忆 |
+| `scripts/` | `scripts/` | 定时任务依赖脚本 |
+| `cron/jobs.json` | `cron/jobs.json` | 定时任务配置与 prompt |
+
+---
+
+## 同步机制
+
+`sync.sh` 采用**白名单制**，只复制上表列出的条目，**绝不整目录扫描 `~/.hermes/`**，
+以避免把敏感文件带入仓库。
+
+```bash
+./sync.sh             # 同步 + 提交 + 推送
+./sync.sh --no-push   # 只同步 + 提交，不推送
+```
+
+流程：复制 → `git add -A` → 有变更则 commit（`sync: YYYY-MM-DD HH:MM`）→ `git push`。
+
+`.gitignore` 排除：`*.lock`、`*.bak*`、`__pycache__/`、`*.pyc`、`.DS_Store`、
+`.venv/`、`.hub/`、`.curator_backups/`、`*.tar.gz`。
+
+---
+
+## cron 任务清单
+
+`cron/jobs.json` 定义了以下 6 个任务（均为 qqbot 投递）：
+
+| 任务 | 计划 | 用途 |
+|---|---|---|
+| 工作日早晨提醒 | `0 12 * * *` | 当日工作提醒 |
+| 广州番禺天气预报 | `0 9 * * *` | 每日天气 |
+| 晚间收尾提醒 | `50 23 * * *` | 收尾复盘 |
+| 今日 AI 午报（Tavily） | `30 12 * * *` | AI 新闻简报 |
+| 下午的热点新闻速览 | `0 14 * * *` | 热点新闻 |
+| 投递简历 | `5 14 * * *` | 校招投递跟进 |
+
+---
+
+## 仓库范围
+
+**当前已纳入**：`AGENTS.md`、`SOUL.md`、`memories/`、`scripts/`、`cron/jobs.json`
+
+**尚未纳入**：
+
+- `skills/`：约 58 MB，含大量第三方上游技能包。`sync.sh` 已预留同步行，
+  首次全量同步时会一并纳入（体积较大，建议先确认）。
+- **永不纳入**（敏感 / 运行时内容）：`config.yaml`、`.env`、`auth.json`、
+  `sessions/`、`state.db`、`logs/`、`cache/` 等。
