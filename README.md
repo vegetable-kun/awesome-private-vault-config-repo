@@ -36,6 +36,8 @@ hermes-config/
 │   └── tavily_shim/            #   Tavily 调用 shim
 ├── hooks/                      # 钩子插件
 │   └── agents-md-gate/         #   AGENTS.md 强制门禁（含搜索路由）
+├── skills/                     # 按需纳入的技能
+│   └── search-router/          #   搜索路由（配合 hooks/agents-md-gate）
 └── cron/
     └── jobs.json               # 定时任务定义与 prompt
 ```
@@ -53,6 +55,7 @@ hermes-config/
 | `memories/personal.yaml` | `memories/personal.yaml` | 偏好记忆 |
 | `scripts/` | `scripts/` | 定时任务依赖脚本 |
 | `hooks/agents-md-gate/` | `plugins/agents-md-gate/` | AGENTS.md 强制规则门禁插件 |
+| `skills/search-router/` | `skills/productivity/search-router/` | 搜索路由技能（含 engines 参考） |
 | `cron/jobs.json` | `cron/jobs.json` | 定时任务配置与 prompt |
 
 ---
@@ -103,6 +106,17 @@ hermes gateway restart
 
 ---
 
+## 技能（skills/）
+
+`skills/search-router/` 定义搜索路由规则：按搜索类型选择引擎、各引擎必填参数、
+降级顺序与已知陷阱。它与 `hooks/agents-md-gate/` 配合——插件负责在未加载本技能时
+拦截违规的搜索调用。
+
+> `skills/` 下约 58 MB 多为第三方上游内容，**默认不同步**；目前仅纳入指定的
+> `search-router`。如需新增，在 `sync.sh` 中按相同格式加一行即可。
+
+---
+
 ## cron 任务清单
 
 `cron/jobs.json` 定义了以下 6 个任务（均为 qqbot 投递）：
@@ -120,11 +134,11 @@ hermes gateway restart
 
 ## 仓库范围
 
-**当前已纳入**：`AGENTS.md`、`SOUL.md`、`memories/`、`scripts/`、`hooks/`、`cron/jobs.json`
+**当前已纳入**：`AGENTS.md`、`SOUL.md`、`memories/`、`scripts/`、`hooks/`、`skills/`、`cron/jobs.json`
 
 **尚未纳入**：
 
-- `skills/`：约 58 MB，含大量第三方上游技能包。**不自动同步**（`sync.sh` 已移除该行）；
-  如需纳入指定技能，可手动 `rsync` 后单独提交。
+- `skills/` 其余技能：约 58 MB，含大量第三方上游技能包。**默认不同步**；
+  按需指定后在 `sync.sh` 中加对应行。
 - **永不纳入**（敏感 / 运行时内容）：`config.yaml`、`.env`、`auth.json`、
   `sessions/`、`state.db`、`logs/`、`cache/` 等。
