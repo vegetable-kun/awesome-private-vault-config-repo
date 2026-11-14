@@ -1,0 +1,8 @@
+name: agents-md-gate
+version: 1.0.0
+description: "Enforce AGENTS.md mandatory rules via tool-call interception. Blocks web_search/web_extract/MCP search tools and shell curl+wget until search-router is loaded; announces shell API calls (gh api); warns on large-project read_file without codegraph."
+author: "user"
+hooks:
+  - pre_tool_call
+  - post_tool_call
+  - transform_llm_output

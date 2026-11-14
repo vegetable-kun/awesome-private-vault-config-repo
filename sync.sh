@@ -28,6 +28,10 @@ rsync -a --delete \
   --exclude='.venv/' --exclude='__pycache__/' \
   "$SRC/scripts/" "$DST/scripts/"
 
+# hook 插件（AGENTS.md 强制门禁，含 search-router 搜索路由）
+rsync -a --delete --exclude='__pycache__/' \
+  "$SRC/plugins/agents-md-gate/" "$DST/hooks/agents-md-gate/"
+
 mkdir -p "$DST/cron"
 cp -a "$SRC/cron/jobs.json" "$DST/cron/jobs.json"
 

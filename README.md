@@ -34,6 +34,8 @@ hermes-config/
 │   ├── python3                 #   cron 专用 Python 解释器入口
 │   ├── .cron-python            #   同上（内容与 python3 相同）
 │   └── tavily_shim/            #   Tavily 调用 shim
+├── hooks/                      # 钩子插件
+│   └── agents-md-gate/         #   AGENTS.md 强制门禁（含搜索路由）
 └── cron/
     └── jobs.json               # 定时任务定义与 prompt
 ```
@@ -50,6 +52,7 @@ hermes-config/
 | `memories/USER.md` | `memories/USER.md` | 用户画像 |
 | `memories/personal.yaml` | `memories/personal.yaml` | 偏好记忆 |
 | `scripts/` | `scripts/` | 定时任务依赖脚本 |
+| `hooks/agents-md-gate/` | `plugins/agents-md-gate/` | AGENTS.md 强制规则门禁插件 |
 | `cron/jobs.json` | `cron/jobs.json` | 定时任务配置与 prompt |
 
 ---
@@ -71,6 +74,35 @@ hermes-config/
 
 ---
 
+## hook 插件（hooks/）
+
+`hooks/agents-md-gate/` 是一个 Hermes 插件，通过 `pre_tool_call` / `post_tool_call` /
+`transform_llm_output` 三个 hook 强制执行 `AGENTS.md` 的强制规则：
+
+1. **搜索路由门禁**：未加载 `search-router`（或 `search-first`）技能时，拦截
+   `web_search` / `web_extract` 及 MCP 搜索工具；shell 里的 `curl` / `wget` /
+   搜索引擎域名同样被拦。
+2. **代码库分析提醒**：对大型项目路径使用 `read_file` 时提示改用 codegraph。
+3. **状态 TTL**：技能加载状态保留约 2 小时，过期后需重新加载技能。
+
+### 启用方式
+
+```bash
+mkdir -p ~/.hermes/plugins
+cp -r hooks/agents-md-gate ~/.hermes/plugins/
+```
+
+然后在 `~/.hermes/config.yaml` 的 `plugins.enabled` 列表中加入 `agents-md-gate`，
+并重启 gateway：
+
+```bash
+hermes gateway restart
+```
+
+> 修改插件代码后需先删除 `__pycache__` 再重启 gateway（gateway 只在启动时加载插件）。
+
+---
+
 ## cron 任务清单
 
 `cron/jobs.json` 定义了以下 6 个任务（均为 qqbot 投递）：
@@ -88,7 +120,7 @@ hermes-config/
 
 ## 仓库范围
 
-**当前已纳入**：`AGENTS.md`、`SOUL.md`、`memories/`、`scripts/`、`cron/jobs.json`
+**当前已纳入**：`AGENTS.md`、`SOUL.md`、`memories/`、`scripts/`、`hooks/`、`cron/jobs.json`
 
 **尚未纳入**：
 
