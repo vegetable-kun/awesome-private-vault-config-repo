@@ -17,10 +17,13 @@ cp -a "$SRC/AGENTS.md" "$SRC/SOUL.md" "$DST/"
 rsync -a --delete --exclude='*.lock' \
   "$SRC/memories/" "$DST/memories/"
 
-# 按需纳入的 skill（用户指定；当前：search-router）
+# 按需纳入的 skill（用户指定；当前：search-router、session-recap）
 # 其它技能不同步，避免把约 58 MB 第三方技能包整体推上仓库
 rsync -a --delete --exclude='__pycache__/' \
   "$SRC/skills/productivity/search-router/" "$DST/skills/search-router/"
+
+rsync -a --delete --exclude='__pycache__/' \
+  "$SRC/skills/productivity/session-recap/" "$DST/skills/session-recap/"
 
 rsync -a --delete \
   --exclude='.venv/' --exclude='__pycache__/' \

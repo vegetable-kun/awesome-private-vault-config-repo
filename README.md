@@ -37,7 +37,8 @@ hermes-config/
 ├── hooks/                      # 钩子插件
 │   └── agents-md-gate/         #   AGENTS.md 强制门禁（含搜索路由）
 ├── skills/                     # 按需纳入的技能
-│   └── search-router/          #   搜索路由（配合 hooks/agents-md-gate）
+│   ├── search-router/          #   搜索路由（配合 hooks/agents-md-gate）
+│   └── session-recap/          #   会话完成情况总结（渲染成图）
 └── cron/
     └── jobs.json               # 定时任务定义与 prompt
 ```
@@ -56,6 +57,7 @@ hermes-config/
 | `scripts/` | `scripts/` | 定时任务依赖脚本 |
 | `hooks/agents-md-gate/` | `plugins/agents-md-gate/` | AGENTS.md 强制规则门禁插件 |
 | `skills/search-router/` | `skills/productivity/search-router/` | 搜索路由技能（含 engines 参考） |
+| `skills/session-recap/` | `skills/productivity/session-recap/` | 会话完成情况总结技能 |
 | `cron/jobs.json` | `cron/jobs.json` | 定时任务配置与 prompt |
 
 ---
@@ -108,12 +110,21 @@ hermes gateway restart
 
 ## 技能（skills/）
 
-`skills/search-router/` 定义搜索路由规则：按搜索类型选择引擎、各引擎必填参数、
-降级顺序与已知陷阱。它与 `hooks/agents-md-gate/` 配合——插件负责在未加载本技能时
+`skills/` 下目前纳入两个技能：
+
+| 技能 | 作用 |
+|---|---|
+| `search-router` | 定义搜索路由规则：按搜索类型选引擎、必填参数、降级顺序与已知陷阱 |
+| `session-recap` | 扫描会话历史，输出「任务清单 / 关键决策 / 数据变化 / 未完成项」总结图 |
+
+`search-router` 与 `hooks/agents-md-gate/` 配合——插件负责在未加载本技能时
 拦截违规的搜索调用。
 
-> `skills/` 下约 58 MB 多为第三方上游内容，**默认不同步**；目前仅纳入指定的
-> `search-router`。如需新增，在 `sync.sh` 中按相同格式加一行即可。
+`session-recap` **依赖 `answer-me-with-html` 技能**完成渲染与出图，
+该依赖未纳入本仓库（见下方「仓库范围」）。
+
+> `skills/` 下约 58 MB 多为第三方上游内容，**默认不同步**；目前仅纳入指定的两个。
+> 如需新增，在 `sync.sh` 中按相同格式加一行即可。
 
 ---
 
@@ -134,11 +145,14 @@ hermes gateway restart
 
 ## 仓库范围
 
-**当前已纳入**：`AGENTS.md`、`SOUL.md`、`memories/`、`scripts/`、`hooks/`、`skills/`、`cron/jobs.json`
+**当前已纳入**：`AGENTS.md`、`SOUL.md`、`memories/`、`scripts/`、`hooks/`、
+`skills/`（`search-router`、`session-recap`）、`cron/jobs.json`
 
 **尚未纳入**：
 
 - `skills/` 其余技能：约 58 MB，含大量第三方上游技能包。**默认不同步**；
   按需指定后在 `sync.sh` 中加对应行。
+- `answer-me-with-html`：`session-recap` 的渲染依赖，含约 1 MB 打包产物
+  （`scripts/am.mjs`），未纳入。
 - **永不纳入**（敏感 / 运行时内容）：`config.yaml`、`.env`、`auth.json`、
   `sessions/`、`state.db`、`logs/`、`cache/` 等。
