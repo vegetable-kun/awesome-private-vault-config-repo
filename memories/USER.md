@@ -1,10 +1,8 @@
 视觉配置：OpenRouter 免费模型提供视觉服务，Step 3.7 Flash > Nemotron 3 Nano Omni（图像分析/OCR/视频摘要），Nemotron 留作 Agent 推理。
 §
-求职背景：双非院校学生，关注互联网大厂校招（腾讯/阿里/京东），正在求职准备。
-§
 MC 游戏：Arch Linux + HMCL，1.20.1「刀剑异闻录」，偏好剑而非枪。进度：击杀凋零、进入暮色森林，按序推 Boss（纳迦→巫妖→牛头人→九头蛇→魅影骑士→阿尔法雪人→雪女）。拥有下界合金套装，用 ProjectE 刷 EMC。偏好结构化表格回答，经常用语音消息。
 §
-GIF 存放规则：生成 GIF 时，Python 脚本和 GIF 输出均放在 ~/.hermes/GIF/ 文件夹。
+GIF 存放规则：生成 GIF 时，Python 脚本和 GIF 输出均放在 ~/.output/gif/ 文件夹。
 §
 可视化选型：GIF/轻量图 → matplotlib + PillowWriter（默认）；3Blue1Brown 风格数学动画视频 → Manim（按需破例，不覆盖 GIF 默认偏好）。Manim 输出偏好：720p / 30fps / 中文 / 只出 MP4。显式要求：停止时立即停止、创建 skill 前需确认、继续前需确认。
 §
@@ -12,23 +10,9 @@ GIF 存放规则：生成 GIF 时，Python 脚本和 GIF 输出均放在 ~/.herm
 §
 文件格式首选项：中文，§ 分隔符，无行号。三个文件优先级：AGENTS.md > USER.md > MEMORY.md。执行规则仅在 AGENTS.md 中绑定。
 §
-当前活跃项目：每日人工智能简报 cron 作业（基于 crawl4ai，交付 QQ）、GitHub 城市设计人工智能提交参与（开放城市人工智能/海淀）、QQ 机器人集成。
-§
-AI Agent 学习：正在学习构建 AI Agent，已询问学习路线（4 阶段：基础→工具链→框架→进阶），推荐从 OpenAI Agents SDK 或 CrewAI 起步，参考 Hermes 架构。
-§
-新闻源偏好：明确拒绝头条/澎湃（高政治化、低信息密度），优先技术/AI 内容。高质量源：知乎、HN、少数派、华尔街见闻、财联社。偏好轻量方案（cron+API）而非完整 TrendRadar 部署。
-§
 搜索工具纠正：强烈纠正过「禁用内置 web_search，优先用专用搜索工具」的约定。搜索偏好已写入 memory，但执行时仍违反，需要更严格遵守。
 §
-GitHub 账号：vegetable-kun（已通过 gh CLI 验证）。
-§
-ComfyUI 兴趣：计划用 RTX 4060 Laptop 8GB VRAM 搭建 ComfyUI，用于求职展示/作品集。4060 8GB 可运行 SDXL/SD1.5，Flux 需 FP8/GGUF 量化。
-§
-昵称/身份：坤。群聊中以此身份回复（幽默风趣、真诚自然、1-3 句话）。违规话题只回「拒绝违规话题😡」。
-§
-闲鱼工具需求：只读——仅查询商品行情、价格、趋势和分析，不做发布、发消息、订单或账号管理。
-§
-PR 提交意向：有向上游开源仓库（NousResearch/hermes-agent）提交 PR 的意向，动机含求职作品集；决策前习惯先搜同类 PR/issue 现状再动手。
+GitHub 账号：vegetable-kun（已通过 gh CLI 和 git 验证）。
 §
 交付物评估：评估交付物极快且不留情面——会直接问「这个工具有什么用？」，一旦判定无实际用途就一句话删掉（「删掉他，没什么用了」），不带情绪、不留遗憾。含义：汇报时先给具体用途和可执行收益，不要为工具/方案本身的价值加戏，工具只是手段。
 §
