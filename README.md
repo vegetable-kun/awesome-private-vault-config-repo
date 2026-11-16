@@ -120,8 +120,12 @@ hermes gateway restart
 `search-router` 与 `hooks/agents-md-gate/` 配合——插件负责在未加载本技能时
 拦截违规的搜索调用。
 
-`session-recap` **依赖 `answer-me-with-html` 技能**完成渲染与出图，
-该依赖未纳入本仓库（见下方「仓库范围」）。
+`session-recap` 有**两个渲染依赖**，均**未纳入本仓库**（见下方「仓库范围」）：
+
+| 依赖技能 | 用途 |
+|---|---|
+| `answer-me-with-html` | HTML 渲染与出图（`scripts/am.mjs`） |
+| `pretty-mermaid` | Mermaid 渲染（`scripts/render.mjs`） |
 
 > `skills/` 下约 58 MB 多为第三方上游内容，**默认不同步**；目前仅纳入指定的两个。
 > 如需新增，在 `sync.sh` 中按相同格式加一行即可。
@@ -152,7 +156,8 @@ hermes gateway restart
 
 - `skills/` 其余技能：约 58 MB，含大量第三方上游技能包。**默认不同步**；
   按需指定后在 `sync.sh` 中加对应行。
-- `answer-me-with-html`：`session-recap` 的渲染依赖，含约 1 MB 打包产物
-  （`scripts/am.mjs`），未纳入。
+- `session-recap` 的**两个渲染依赖均未纳入**：`answer-me-with-html`（HTML 渲染，
+  含约 1 MB 打包产物 `scripts/am.mjs`）与 `pretty-mermaid`（Mermaid 渲染）。
+  只克隆本仓库时，`session-recap` 无法出图，需另行安装这两个技能。
 - **永不纳入**（敏感 / 运行时内容）：`config.yaml`、`.env`、`auth.json`、
   `sessions/`、`state.db`、`logs/`、`cache/` 等。
