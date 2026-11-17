@@ -232,6 +232,15 @@ def _classify_shell(cmd: str) -> str:
 
 def _pre_tool_call(tool_name: str, args: dict, task_id: str = "",
                    session_id: str = "", **kwargs):
+    # P0-1 fail-open: a bug inside this gate must never take down every search.
+    try:
+        return _pre_tool_call_inner(tool_name, args, task_id, session_id, **kwargs)
+    except Exception:
+        return None
+
+
+def _pre_tool_call_inner(tool_name: str, args: dict, task_id: str = "",
+                         session_id: str = "", **kwargs):
     if _user_override():
         return None
 

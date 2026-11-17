@@ -22,15 +22,15 @@
       "schedule_display": "0 12 * * *",
       "repeat": {
         "times": null,
-        "completed": 121
+        "completed": 124
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-22T12:48:28.094606+08:00",
-      "next_run_at": "2026-11-14T12:00:00+08:00",
-      "last_run_at": "2026-11-13T12:02:47.489652+08:00",
+      "next_run_at": "2026-11-17T12:00:00+08:00",
+      "last_run_at": "2026-11-16T12:02:02.788317+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -41,13 +41,13 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-13T12:00:00+08:00",
-        "dispatched_at": "2026-11-13T12:00:59.021967+08:00",
-        "lateness_seconds": 59.0,
+        "scheduled_at": "2026-11-16T12:00:00+08:00",
+        "dispatched_at": "2026-11-16T12:00:19.833529+08:00",
+        "lateness_seconds": 19.8,
         "kind": "on_time"
       },
       "canonical_completions": [
-        "d65ebecbbfab468696d4121b628a54ce"
+        "b4e7a79d93ff4abbb746e2a18e65c6b1"
       ],
       "last_failure": {
         "at": "2026-11-11T12:00:51.365757+08:00",
@@ -76,15 +76,15 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 108
+        "completed": 112
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-31T09:14:01.360019+08:00",
-      "next_run_at": "2026-11-14T09:00:00+08:00",
-      "last_run_at": "2026-11-13T11:27:07.591537+08:00",
+      "next_run_at": "2026-11-18T09:00:00+08:00",
+      "last_run_at": "2026-11-17T09:01:23.961636+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -101,17 +101,17 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-13T09:00:00+08:00",
-        "dispatched_at": "2026-11-13T11:25:59.063735+08:00",
-        "lateness_seconds": 8759.1,
-        "kind": "catch_up"
+        "scheduled_at": "2026-11-17T09:00:00+08:00",
+        "dispatched_at": "2026-11-17T09:00:32.466719+08:00",
+        "lateness_seconds": 32.5,
+        "kind": "on_time"
       },
       "canonical_completions": [
-        "a9328167c5ff43b6907b42b79bad499e"
+        "874964c953634af5a071d0c553847119"
       ],
       "last_failure": {
-        "at": "2026-11-11T09:00:54.232750+08:00",
-        "detail": "RuntimeError: HTTP 404: This model's free period has ended. To continue using Beam 1.0, switch to 'reflection/beam-1.0-501b-a23b'."
+        "at": "2026-11-15T09:01:16.850379+08:00",
+        "detail": "GatewayClientError: Gateway connection failed; no local fallback"
       }
     },
     {
@@ -136,15 +136,15 @@
       "schedule_display": "50 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 105
+        "completed": 108
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-31T10:11:17.754483+08:00",
-      "next_run_at": "2026-11-14T23:50:00+08:00",
-      "last_run_at": "2026-11-13T23:50:40.980849+08:00",
+      "next_run_at": "2026-11-17T23:50:00+08:00",
+      "last_run_at": "2026-11-16T23:51:17.718818+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -155,14 +155,18 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-13T23:50:00+08:00",
-        "dispatched_at": "2026-11-13T23:50:08.582776+08:00",
-        "lateness_seconds": 8.6,
+        "scheduled_at": "2026-11-16T23:50:00+08:00",
+        "dispatched_at": "2026-11-16T23:50:23.292977+08:00",
+        "lateness_seconds": 23.3,
         "kind": "on_time"
       },
       "canonical_completions": [
-        "57f9d4ac008a455db1bf014af75b80d9"
-      ]
+        "c871bf25db9d44f4b2a635d82c0ae871"
+      ],
+      "last_failure": {
+        "at": "2026-11-14T23:50:57.661714+08:00",
+        "detail": "GatewayClientError: Gateway connection failed; no local fallback"
+      }
     },
     {
       "id": "722796644e0c",
@@ -191,15 +195,15 @@
       "schedule_display": "30 12 * * *",
       "repeat": {
         "times": null,
-        "completed": 113
+        "completed": 116
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-10T20:58:24.553786+08:00",
-      "next_run_at": "2026-11-14T12:30:00+08:00",
-      "last_run_at": "2026-11-13T12:32:37.816357+08:00",
+      "next_run_at": "2026-11-17T12:30:00+08:00",
+      "last_run_at": "2026-11-16T12:35:24.027793+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -216,14 +220,14 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-13T12:30:00+08:00",
-        "dispatched_at": "2026-11-13T12:30:59.006346+08:00",
-        "lateness_seconds": 59.0,
+        "scheduled_at": "2026-11-16T12:30:00+08:00",
+        "dispatched_at": "2026-11-16T12:30:19.855474+08:00",
+        "lateness_seconds": 19.9,
         "kind": "on_time"
       },
       "interpreter": "/home/ecs-assist-user/.hermes/scripts/python3",
       "canonical_completions": [
-        "c04ff5f21287468a949fc11a2e4c0ae3"
+        "2a1c7e2f3bdb41ffb2e5995ebb1a4903"
       ],
       "last_failure": {
         "at": "2026-11-11T12:30:49.152621+08:00",
@@ -257,15 +261,15 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 102
+        "completed": 105
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-15T22:20:02.822658+08:00",
-      "next_run_at": "2026-11-14T14:00:00+08:00",
-      "last_run_at": "2026-11-13T14:07:16.372089+08:00",
+      "next_run_at": "2026-11-17T14:00:00+08:00",
+      "last_run_at": "2026-11-16T14:02:38.846694+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -282,9 +286,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-13T14:00:00+08:00",
-        "dispatched_at": "2026-11-13T14:00:59.026903+08:00",
-        "lateness_seconds": 59.0,
+        "scheduled_at": "2026-11-16T14:00:00+08:00",
+        "dispatched_at": "2026-11-16T14:00:52.743062+08:00",
+        "lateness_seconds": 52.7,
         "kind": "on_time"
       },
       "last_failure": {
@@ -292,7 +296,7 @@
         "detail": "RuntimeError: HTTP 404: This model's free period has ended. To continue using Beam 1.0, switch to 'reflection/beam-1.0-501b-a23b'."
       },
       "canonical_completions": [
-        "c111a30a0bdf422fa480c48b993c818d"
+        "10a4d1b274b04f25a06514ce1c2d94a0"
       ]
     },
     {
@@ -318,15 +322,15 @@
       "schedule_display": "5 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 18
+        "completed": 21
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-10-29T12:23:03.044638+08:00",
-      "next_run_at": "2026-11-14T14:05:00+08:00",
-      "last_run_at": "2026-11-13T14:08:20.012621+08:00",
+      "next_run_at": "2026-11-17T14:05:00+08:00",
+      "last_run_at": "2026-11-16T14:08:18.960739+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -341,16 +345,16 @@
       "enabled_toolsets": null,
       "workdir": null,
       "last_dispatch": {
-        "scheduled_at": "2026-11-13T14:05:00+08:00",
-        "dispatched_at": "2026-11-13T14:05:59.039801+08:00",
-        "lateness_seconds": 59.0,
+        "scheduled_at": "2026-11-16T14:05:00+08:00",
+        "dispatched_at": "2026-11-16T14:05:52.731709+08:00",
+        "lateness_seconds": 52.7,
         "kind": "on_time"
       },
       "fire_claim": null,
       "canonical_completions": [
-        "9ba45be4c47f4b03a61b29e76fe973b5"
+        "e3e177c69c954d02955611941127c22a"
       ]
     }
   ],
-  "updated_at": "2026-11-13T23:50:42.754688+08:00"
+  "updated_at": "2026-11-17T09:01:25.529115+08:00"
 }

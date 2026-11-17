@@ -33,6 +33,8 @@ tools: tool_search, tool_describe, tool_call
 2. **anysearch vertical 搜索前必须先调 `get_sub_domains`** —— 
    `sub_domain_params` 只能用它返回的值，禁止自造
 3. **firecrawl 要实时数据必须 `maxAge=0`** —— 默认会返回缓存内容
+4. **firecrawl_scrape 必须带 `objective`** —— MCP 层 required（minLength 1），
+   缺了直接报 `missing required argument(s): objective`，不是可选参数
 
 ## 调用流程
 
@@ -47,6 +49,20 @@ tools: tool_search, tool_describe, tool_call
    （插件只把**搜索引擎**类调用写进这行；shell 里的 `gh api` / `requests.get`
    不出现，那是刻意去掉的噪音。）
 5. 失败时降级到下一优先级工具
+
+### 门禁插件位置
+
+强制上述规则的插件在 `~/.hermes/plugins/agents-md-gate/`（hook：`pre_tool_call` /
+`post_tool_call` / `transform_llm_output`；配置项为 `plugins.enabled` 里的
+`agents-md-gate`）。排查「该拦没拦 / 不该拦却拦了」、调整 TTL 或拦截名单时，
+改的是该目录下的 `handler.py`；改完先删 `__pycache__` 再 `hermes gateway restart`
+（gateway 只在启动时加载插件）。
+
+**能力边界**：插件只能拦（block）、标记（transform）、记录（post），
+**改不了「缺失必填参数」**——本地 schema 校验（`agent/tool_executor.py:421`
+→ `tools/tool_search_validation.py`）在 `_parse_tool_call` 阶段就跑，**早于 hook**；
+`{"action": "modify"}` 只能改写**已存在**的参数。要自动补必填参数得改核心
+`validate_deferred_call_args`，别写在插件里。
 
 ### ⚠️ 长会话里要重新加载本 skill
 
