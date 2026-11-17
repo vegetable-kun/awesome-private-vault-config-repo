@@ -124,8 +124,10 @@ hermes gateway restart
 
 | 依赖技能 | 用途 |
 |---|---|
-| `answer-me-with-html` | HTML 渲染与出图（`scripts/am.mjs`） |
-| `pretty-mermaid` | Mermaid 渲染（`scripts/render.mjs`） |
+| [`answer-me-with-html`](https://github.com/QingYunA/answer-me-with-html) | HTML 渲染与出图（`scripts/am.mjs`） |
+| [`pretty-mermaid`](https://github.com/imxv/Pretty-mermaid-skills) | Mermaid 渲染（`scripts/render.mjs`） |
+
+两者均为第三方上游技能（MIT 许可），需自行安装。
 
 > `skills/` 下约 58 MB 多为第三方上游内容，**默认不同步**；目前仅纳入指定的两个。
 > 如需新增，在 `sync.sh` 中按相同格式加一行即可。
@@ -156,8 +158,10 @@ hermes gateway restart
 
 - `skills/` 其余技能：约 58 MB，含大量第三方上游技能包。**默认不同步**；
   按需指定后在 `sync.sh` 中加对应行。
-- `session-recap` 的**两个渲染依赖均未纳入**：`answer-me-with-html`（HTML 渲染，
-  含约 1 MB 打包产物 `scripts/am.mjs`）与 `pretty-mermaid`（Mermaid 渲染）。
+- `session-recap` 的**两个渲染依赖均未纳入**：
+  [`answer-me-with-html`](https://github.com/QingYunA/answer-me-with-html)（HTML 渲染，
+  含约 1 MB 打包产物 `scripts/am.mjs`）与
+  [`pretty-mermaid`](https://github.com/imxv/Pretty-mermaid-skills)（Mermaid 渲染）。
   只克隆本仓库时，`session-recap` 无法出图，需另行安装这两个技能。
 - **永不纳入**（敏感 / 运行时内容）：`config.yaml`、`.env`、`auth.json`、
   `sessions/`、`state.db`、`logs/`、`cache/` 等。
