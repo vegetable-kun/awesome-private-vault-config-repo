@@ -1,4 +1,4 @@
-# hermes-config
+# awesome-private-vault-config-repo
 
 Hermes Agent 配置与知识库的镜像仓库。
 
@@ -13,7 +13,7 @@ Hermes Agent 配置与知识库的镜像仓库。
 ## 目录结构
 
 ```
-hermes-config/
+awesome-private-vault-config-repo/
 ├── .gitignore                  # 排除运行时状态 / 虚拟环境 / 缓存
 ├── README.md                   # 本文件
 ├── sync.sh                     # 同步脚本：复制 → 提交 → 推送

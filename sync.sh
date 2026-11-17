@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sync.sh — 把 ~/.hermes 的指定内容同步到 ~/hermes-config 并提交推送
+# sync.sh — 把 ~/.hermes 的指定内容同步到本仓库并提交推送
 # 白名单制：只复制下面列出的条目，绝不整目录扫 ~/.hermes（避免敏感文件混入）
 #
 # 用法:
@@ -8,7 +8,7 @@
 set -euo pipefail
 
 SRC="$HOME/.hermes"
-DST="$HOME/hermes-config"
+DST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$DST"
 
 # ---- 1. 复制 ----
