@@ -40,7 +40,8 @@ awesome-private-vault-config-repo/
 │   ├── search-router/          #   搜索路由（配合 hooks/agents-md-gate）
 │   ├── session-recap/          #   会话完成情况总结（渲染成图）
 │   ├── llm-api-benchmark/      #   LLM API 测速与对比
-│   └── kfc-crazy-thursday/     #   疯狂星期四文案
+│   ├── kfc-crazy-thursday/     #   疯狂星期四文案
+│   └── server-disk-hygiene/    #   小主机磁盘清理
 └── cron/
     └── jobs.json               # 定时任务定义与 prompt
 ```
@@ -62,6 +63,7 @@ awesome-private-vault-config-repo/
 | `skills/session-recap/` | `skills/productivity/session-recap/` | 会话完成情况总结技能 |
 | `skills/llm-api-benchmark/` | `skills/mlops/llm-api-benchmark/` | LLM API 基准测试技能 |
 | `skills/kfc-crazy-thursday/` | `skills/kfc-crazy-thursday/` | 疯狂星期四文案技能 |
+| `skills/server-disk-hygiene/` | `skills/devops/server-disk-hygiene/` | 小主机磁盘清理技能 |
 | `cron/jobs.json` | `cron/jobs.json` | 定时任务配置与 prompt |
 
 ---
@@ -122,6 +124,7 @@ hermes gateway restart
 | `session-recap` | 扫描会话历史，输出「任务清单 / 关键决策 / 数据变化 / 未完成项」总结图 |
 | `llm-api-benchmark` | LLM API 测速与横向对比（TTFT / 生成耗时 / tokens 每秒 / 成本） |
 | `kfc-crazy-thursday` | 「疯狂星期四 / V我50」随机文案获取 |
+| `server-disk-hygiene` | 小内存主机磁盘清理：分层回收、探针命令 |
 
 `search-router` 与 `hooks/agents-md-gate/` 配合——插件负责在未加载本技能时
 拦截违规的搜索调用。
@@ -135,7 +138,7 @@ hermes gateway restart
 
 两者均为第三方上游技能（MIT 许可），需自行安装。
 
-> `skills/` 下约 58 MB 多为第三方上游内容，**默认不同步**；目前仅纳入指定的四个。
+> `skills/` 下约 58 MB 多为第三方上游内容，**默认不同步**；目前仅纳入指定的五个。
 > 如需新增，在 `sync.sh` 中按相同格式加一行即可。
 
 ---
@@ -158,7 +161,7 @@ hermes gateway restart
 ## 仓库范围
 
 **当前已纳入**：`AGENTS.md`、`SOUL.md`、`memories/`、`scripts/`、`hooks/`、
-`skills/`（`search-router`、`session-recap`、`llm-api-benchmark`、`kfc-crazy-thursday`）、`cron/jobs.json`
+`skills/`（`search-router`、`session-recap`、`llm-api-benchmark`、`kfc-crazy-thursday`、`server-disk-hygiene`）、`cron/jobs.json`
 
 **尚未纳入**：
 
