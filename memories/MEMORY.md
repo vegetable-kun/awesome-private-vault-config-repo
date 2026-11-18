@@ -21,3 +21,5 @@ Nous Portal 免费模型：请求体必须带 `tags: ["user=<任意标识>"]`（
 Hermes 三端使用：主要使用 CLI、TUI、Dashboard（仪表盘）。涉及 Hermes 更新或新功能时优先考虑这三端，而不是桌面端。
 §
 LightPanda 已部署：二进制 ~/.local/bin/lightpanda v1.0.2（deb 包解压，免 sudo）。Hermes 配置 browser.engine=lightpanda + browser.cloud_provider=local —— local 必须显式设置，否则 .env 里的 Nous/BrowserUse 凭据会被 autodetect 选中并 shadow 掉 engine。Hermes 内置 tools/browser_lightpanda.py（每会话起 lightpanda serve）+ Chrome fallback（截图等命令自动回退）。实测内存 29MB（Chromium ~2GB），无图形渲染故不支持截图。
+§
+Hermes terminal 工具：默认工作目录可能指向不存在的 ~/.hermes/images，导致 exit 126（报 cd 失败）。调用时必须传 workdir 参数指定一个存在的目录（如 /home/ecs-assist-user）。

@@ -74,11 +74,24 @@ awesome-private-vault-config-repo/
 以避免把敏感文件带入仓库。
 
 ```bash
-./sync.sh             # 同步 + 提交 + 推送
-./sync.sh --no-push   # 只同步 + 提交，不推送
+./sync.sh             # 同步 → 建分支 → 提交 → 推送 → 开 PR（不合并）
+./sync.sh --no-push   # 只同步到本地分支并提交，不推送、不开 PR
 ```
 
-流程：复制 → `git add -A` → 有变更则 commit（`sync: YYYY-MM-DD HH:MM`）→ `git push`。
+**流程（半自动 PR 工作流）**：
+
+```
+复制 → 从 main 建分支 sync/<时间戳> → git add -A
+     → commit（sync: YYYY-MM-DD HH:MM）
+     → git push → gh pr create（base: main）
+     → 人工审查 → 人工合并
+```
+
+- **不自动合并**：PR 创建后停在等待状态，由人确认 diff 后手动合并。
+- **合并命令**：`gh pr merge --merge --delete-branch`
+  （`--merge` 保留每个 commit 与合并记录；**不要用 `--squash`**，会压平历史）。
+- **无变化时**：自动删掉临时分支并退出，不留垃圾分支。
+- **工作区有未提交变更时**：打印警告后继续，变更一并进入 PR，由审查环节兜底。
 
 `.gitignore` 排除：`*.lock`、`*.bak*`、`__pycache__/`、`*.pyc`、`.DS_Store`、
 `.venv/`、`.hub/`、`.curator_backups/`、`*.tar.gz`。
