@@ -43,7 +43,7 @@ metadata:
    - 流程 / 时间线 / 时序 → Mermaid（`pretty-mermaid`）
    - **无法判断时默认用 HTML**
    完成标准：格式选择有明确理由。
-4. **清理旧图** — 渲染前清理 `~/.output/` 中超过 7 天的旧图。完成标准：旧图已清理，目录只保留近期文件。
+4. **清理输出目录** — 渲染前清理 `~/.output/`：删超过 7 天的旧文件，并删 `photo/*.webp`（原始格式，PNG 已转好）与 `pages/*.html`（源文件，PNG 已生成）。**只保留 PNG**。完成标准：`~/.output` 内无 webp / html，PNG 齐全。
 5. **渲染**：
    - HTML：`AM_HOME=~/.output node ~/.hermes/skills/answer-me-with-html/scripts/am.mjs render - <<'AM_EOF' ... AM_EOF`
    - Mermaid：`node ~/.hermes/skills/pretty-mermaid/scripts/render.mjs --input <file>.mmd --output ~/.output/<file>.png --format png --theme tokyo-night`
@@ -54,7 +54,7 @@ metadata:
      ~/.hermes/skills/answer-me-with-html/scripts/am2png.py \
      ~/.output/<page.html> ~/.output/<page.png>
    ```
-   完成标准：PNG 文件生成且大小 > 10KB。**Mermaid 路径跳过此步**，直接进入验证。
+   完成标准：PNG 文件生成且大小 > 10KB。**`am2png.py` 成功行里的尺寸（如 `1280x2`）不是最终尺寸** —— 用 PIL 读实际宽高确认，别据此重渲染。**Mermaid 路径跳过此步**，直接进入验证。
 7. **验证** — 用 `vision_analyze` 读回图片确认内容完整、无截断。完成标准：图片中所有面板文字可见。
 8. **发送** — 单独一行 `MEDIA:~/.output/<output.png>`。完成标准：QQ 消息中出现图片。
 
@@ -66,7 +66,7 @@ metadata:
 - **统一输出目录：`~/.output/`**（HTML 和 Mermaid 共用）
 - HTML 渲染：设置 `AM_HOME=~/.output`，输出到 `~/.output/pages/`（am.mjs 自动创建 pages 子目录）
 - Mermaid 渲染：`--output ~/.output/<file>.png`，直接放 `~/.output/`
-- 旧图清理：渲染前清理 `~/.output/` 中超过 7 天的文件
+- 旧图清理：渲染前清理 `~/.output/` 中超过 7 天的文件；**只保留 PNG**（删 webp 原始格式与 `pages/*.html` 源文件）
 
 ## Pitfalls
 
