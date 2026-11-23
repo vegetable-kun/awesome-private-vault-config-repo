@@ -22,15 +22,15 @@
       "schedule_display": "0 12 * * *",
       "repeat": {
         "times": null,
-        "completed": 130
+        "completed": 133
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-22T12:48:28.094606+08:00",
-      "next_run_at": "2026-11-22T12:00:00+08:00",
-      "last_run_at": "2026-11-21T12:07:09.430244+08:00",
+      "next_run_at": "2026-11-24T12:00:00+08:00",
+      "last_run_at": "2026-11-23T12:01:54.560610+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -41,16 +41,16 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-21T12:00:00+08:00",
-        "dispatched_at": "2026-11-21T12:00:09.332707+08:00",
-        "lateness_seconds": 9.3,
+        "scheduled_at": "2026-11-23T12:00:00+08:00",
+        "dispatched_at": "2026-11-23T12:00:19.771822+08:00",
+        "lateness_seconds": 19.8,
         "kind": "on_time"
       },
       "canonical_completions": [
-        "7251f7a46ccd481eb9023d912296bcda"
+        "322a847bbf1a404591f95f8a3f333213"
       ],
       "last_failure": {
-        "at": "2026-11-21T12:00:57.725769+08:00",
+        "at": "2026-11-22T12:01:35.120664+08:00",
         "detail": "Restart-safe cron worker exited with status 1 after adopting this execution, without writing a durable terminal state; whether side effects ran is unknown."
       }
     },
@@ -76,17 +76,17 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 116
+        "completed": 118
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-31T09:14:01.360019+08:00",
-      "next_run_at": "2026-11-22T09:00:00+08:00",
-      "last_run_at": "2026-11-21T09:00:31.443907+08:00",
-      "last_status": "error",
-      "last_error": "GatewayClientError: Gateway connection failed; no local fallback",
+      "next_run_at": "2026-11-24T09:00:00+08:00",
+      "last_run_at": "2026-11-23T09:01:38.691354+08:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "qqbot",
       "origin": {
@@ -99,18 +99,18 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1,
+      "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-21T09:00:00+08:00",
-        "dispatched_at": "2026-11-21T09:00:09.340963+08:00",
-        "lateness_seconds": 9.3,
+        "scheduled_at": "2026-11-23T09:00:00+08:00",
+        "dispatched_at": "2026-11-23T09:00:19.773327+08:00",
+        "lateness_seconds": 19.8,
         "kind": "on_time"
       },
       "canonical_completions": [
-        "80dfbcdba07540bfb99a7cdd4a95523a"
+        "1f8ee5191412486c9318546b35ef3311"
       ],
       "last_failure": {
-        "at": "2026-11-21T09:00:31.443907+08:00",
+        "at": "2026-11-22T09:00:20.397247+08:00",
         "detail": "GatewayClientError: Gateway connection failed; no local fallback"
       }
     },
@@ -136,15 +136,15 @@
       "schedule_display": "50 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 112
+        "completed": 114
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-31T10:11:17.754483+08:00",
-      "next_run_at": "2026-11-21T23:50:00+08:00",
-      "last_run_at": "2026-11-20T23:51:08.702398+08:00",
+      "next_run_at": "2026-11-23T23:50:00+08:00",
+      "last_run_at": "2026-11-22T23:51:06.152745+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -155,13 +155,13 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-20T23:50:00+08:00",
-        "dispatched_at": "2026-11-20T23:50:24.978956+08:00",
-        "lateness_seconds": 25.0,
+        "scheduled_at": "2026-11-22T23:50:00+08:00",
+        "dispatched_at": "2026-11-22T23:50:19.778207+08:00",
+        "lateness_seconds": 19.8,
         "kind": "on_time"
       },
       "canonical_completions": [
-        "913749a7ad5c460b8f9307b2ddfab7d4"
+        "cbc0d626a0c64300a1f9c69dde1bd087"
       ],
       "last_failure": {
         "at": "2026-11-19T23:51:10.364781+08:00",
@@ -195,15 +195,15 @@
       "schedule_display": "30 12 * * *",
       "repeat": {
         "times": null,
-        "completed": 121
+        "completed": 123
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-10T20:58:24.553786+08:00",
-      "next_run_at": "2026-11-22T12:30:00+08:00",
-      "last_run_at": "2026-11-21T12:35:26.623537+08:00",
+      "next_run_at": "2026-11-24T12:30:00+08:00",
+      "last_run_at": "2026-11-23T12:32:39.612432+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -220,14 +220,14 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-21T12:30:00+08:00",
-        "dispatched_at": "2026-11-21T12:30:09.468706+08:00",
-        "lateness_seconds": 9.5,
+        "scheduled_at": "2026-11-23T12:30:00+08:00",
+        "dispatched_at": "2026-11-23T12:30:19.772734+08:00",
+        "lateness_seconds": 19.8,
         "kind": "on_time"
       },
       "interpreter": "/home/ecs-assist-user/.hermes/scripts/python3",
       "canonical_completions": [
-        "7b7838efcbda4d48bfd8ae8c92f2b558"
+        "c0f264c2782f46e3b8f57fa724a23483"
       ],
       "last_failure": {
         "at": "2026-11-11T12:30:49.152621+08:00",
@@ -261,15 +261,15 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 109
+        "completed": 112
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-15T22:20:02.822658+08:00",
-      "next_run_at": "2026-11-21T14:00:00+08:00",
-      "last_run_at": "2026-11-20T14:01:53.223959+08:00",
+      "next_run_at": "2026-11-24T14:00:00+08:00",
+      "last_run_at": "2026-11-23T14:01:09.768586+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -286,9 +286,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-20T14:00:00+08:00",
-        "dispatched_at": "2026-11-20T14:00:24.972867+08:00",
-        "lateness_seconds": 25.0,
+        "scheduled_at": "2026-11-23T14:00:00+08:00",
+        "dispatched_at": "2026-11-23T14:00:19.771520+08:00",
+        "lateness_seconds": 19.8,
         "kind": "on_time"
       },
       "last_failure": {
@@ -296,7 +296,7 @@
         "detail": "RuntimeError: HTTP 404: This model's free period has ended. To continue using Beam 1.0, switch to 'reflection/beam-1.0-501b-a23b'."
       },
       "canonical_completions": [
-        "17f9287985e84d3b9b82a5f14acbc004"
+        "e7c6760e9e864796a513b3b048d84812"
       ]
     },
     {
@@ -322,15 +322,15 @@
       "schedule_display": "5 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 25
+        "completed": 28
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-10-29T12:23:03.044638+08:00",
-      "next_run_at": "2026-11-21T14:05:00+08:00",
-      "last_run_at": "2026-11-20T14:10:28.646255+08:00",
+      "next_run_at": "2026-11-24T14:05:00+08:00",
+      "last_run_at": "2026-11-23T14:06:25.058378+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -345,16 +345,16 @@
       "enabled_toolsets": null,
       "workdir": null,
       "last_dispatch": {
-        "scheduled_at": "2026-11-20T14:05:00+08:00",
-        "dispatched_at": "2026-11-20T14:05:24.964895+08:00",
-        "lateness_seconds": 25.0,
+        "scheduled_at": "2026-11-23T14:05:00+08:00",
+        "dispatched_at": "2026-11-23T14:05:19.770802+08:00",
+        "lateness_seconds": 19.8,
         "kind": "on_time"
       },
       "fire_claim": null,
       "canonical_completions": [
-        "7d110a3a03b14b2e9df3646044cf0d56"
+        "de421de927b54760b658ef3d5da415a6"
       ]
     }
   ],
-  "updated_at": "2026-11-21T12:35:27.897853+08:00"
+  "updated_at": "2026-11-23T14:06:25.993183+08:00"
 }
