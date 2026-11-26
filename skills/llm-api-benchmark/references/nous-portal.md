@@ -24,10 +24,11 @@ upstage/solar-pro4      (付费)   upstage/solar-pro4:free
 
 用相同请求体测试两种变体，是区分"免费层限制"与"模型 ID 错误"的最快方法。
 
-## `:free` 模型需要用户标签
+## `:free` 模型的 `user=` 标签要求**因模型而异**
 
-对 `:free` 模型的请求**必须**携带 `tags`：包含一个 `key=value` 条目的列表，
-其中 key 为 `user`。
+部分 `:free` 模型要求请求携带 `tags`：一个含 `key=value` 条目的列表，其中必须有
+一条 key 为 `user`。**这不是所有 `:free` 模型的通则**——同一目录里不同模型的要求
+不同，只能逐个实测（实测表见文末）。
 
 ```json
 {"model": "upstage/solar-pro4:free",
@@ -48,7 +49,18 @@ upstage/solar-pro4      (付费)   upstage/solar-pro4:free
 
 值不做校验——任何字符串均可。非 `:free` ID 接受不带 tags 的请求体，
 因此 `:free` ID 上出现 400 通常是这个限制，而非模型名写错。
-`meituan/longcat-2.0:free` 接受不带 tags 的请求体。
+
+### 实测：同一 key、同一请求体形态
+
+| 模型 | `tags:["user=…"]` | 只带 Hermes 内置标签 | 完全不带 tags |
+|---|---|---|---|
+| `stepfun/step-3.7-flash:free` | 200 | 400 missing user tag | 400 missing tags |
+| `tencent/hy4-flash:free` | 200 | 200 | 200 |
+| `meituan/longcat-2.5:free` | 200 | 200 | 200 |
+
+含义：Hermes 的 `nous_portal_tags()` 只发 `product=` / `client=` / `conversation=`，
+**对强制 `user=` 的模型不够**，cron 会直接 400。给 cron 选 `:free` 模型时优先
+选不强制 `user=` 的那些，或确认调用方会自己把该标签补进请求体。
 
 ## 真相藏在本地 Hermes 安装中
 
@@ -58,7 +70,7 @@ Hermes 作为 Nous 官方参考客户端发布，因此当 400 提到一个你�
 - `plugins/model-providers/nous/__init__.py` → `build_extra_body()` — 合并到每个请求的内容
   （注意：文档提到客户端提供的 provider 路由偏好会被 400 拒绝）
 - `agent/portal_tags.py` → `nous_portal_tags()` — 标准标签列表格式
-  （`product=…`、`client=…`、`conversation=…`）；注意：仅这些**不满足**免费层的 `user` 要求
+  （`product=…`、`client=…`、`conversation=…`）；对强制 `user=` 的模型仅靠这些会被拒
 
 `grep -rn "<字段>" <hermes-agent>/agent <hermes-agent>/plugins`
 比猜参数高效；同样的技巧适用于任何安装了官方本地客户端的提供商。

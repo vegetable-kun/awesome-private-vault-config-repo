@@ -23,3 +23,11 @@ Hermes 三端使用：主要使用 CLI、TUI、Dashboard（仪表盘）。涉及
 LightPanda 已部署：二进制 ~/.local/bin/lightpanda v1.0.2（deb 包解压，免 sudo）。Hermes 配置 browser.engine=lightpanda + browser.cloud_provider=local —— local 必须显式设置，否则 .env 里的 Nous/BrowserUse 凭据会被 autodetect 选中并 shadow 掉 engine。Hermes 内置 tools/browser_lightpanda.py（每会话起 lightpanda serve）+ Chrome fallback（截图等命令自动回退）。实测内存 29MB（Chromium ~2GB），无图形渲染故不支持截图。
 §
 Hermes terminal 工具：默认工作目录可能指向不存在的 ~/.hermes/images，导致 exit 126（报 cd 失败）。调用时必须传 workdir 参数指定一个存在的目录（如 /home/ecs-assist-user）。
+§
+配置仓库已改名：GitHub vegetable-kun/awesome-private-vault-config-repo（public），本地目录 ~/awesome-private-vault-config-repo —— 原 ~/hermes-config 已不存在。sync.sh 的 DST 用 BASH_SOURCE 相对定位，目录改名后仍可用。
+§
+该仓库内容约定：skills 按需纳入（search-router / session-recap / llm-api-benchmark / kfc-crazy-thursday），其余约 58MB 第三方技能不同步；session-recap 依赖 answer-me-with-html + pretty-mermaid，两者均未纳入（README 已声明并附上游链接）。
+§
+pretty-mermaid 软链陷阱：~/.hermes/skills/pretty-mermaid → ~/.agents/skills/pretty-mermaid（真实目录，skills CLI 安装，~/.agents/.skill-lock.json 有记录；config.yaml 的 skills.external_dirs 含 ~/.agents/skills）。只有一份真实文件，删真实目录会变死链。
+§
+terminal 的持久 cwd 偶尔失效（报 cd: <旧目录>: No such file or directory）——改用显式 workdir 参数规避。

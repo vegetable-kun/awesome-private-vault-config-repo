@@ -22,36 +22,36 @@
       "schedule_display": "0 12 * * *",
       "repeat": {
         "times": null,
-        "completed": 133
+        "completed": 135
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-22T12:48:28.094606+08:00",
-      "next_run_at": "2026-11-24T12:00:00+08:00",
-      "last_run_at": "2026-11-23T12:01:54.560610+08:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-11-26T12:00:00+08:00",
+      "last_run_at": "2026-11-25T12:00:27.887713+08:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 400: Request path cannot be relayed",
       "last_delivery_error": null,
       "deliver": "qqbot",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0,
+      "failure_streak": 1,
       "last_dispatch": {
-        "scheduled_at": "2026-11-23T12:00:00+08:00",
-        "dispatched_at": "2026-11-23T12:00:19.771822+08:00",
-        "lateness_seconds": 19.8,
+        "scheduled_at": "2026-11-25T12:00:00+08:00",
+        "dispatched_at": "2026-11-25T12:00:08.975137+08:00",
+        "lateness_seconds": 9.0,
         "kind": "on_time"
       },
       "canonical_completions": [
-        "322a847bbf1a404591f95f8a3f333213"
+        "36a50c6a8d3b4ccab853ecc6fbe1c202"
       ],
       "last_failure": {
-        "at": "2026-11-22T12:01:35.120664+08:00",
-        "detail": "Restart-safe cron worker exited with status 1 after adopting this execution, without writing a durable terminal state; whether side effects ran is unknown."
+        "at": "2026-11-25T12:00:27.887713+08:00",
+        "detail": "RuntimeError: HTTP 400: Request path cannot be relayed"
       }
     },
     {
@@ -76,15 +76,15 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 118
+        "completed": 121
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-31T09:14:01.360019+08:00",
-      "next_run_at": "2026-11-24T09:00:00+08:00",
-      "last_run_at": "2026-11-23T09:01:38.691354+08:00",
+      "next_run_at": "2026-11-27T09:00:00+08:00",
+      "last_run_at": "2026-11-26T09:00:37.140196+08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -101,17 +101,17 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-23T09:00:00+08:00",
-        "dispatched_at": "2026-11-23T09:00:19.773327+08:00",
-        "lateness_seconds": 19.8,
+        "scheduled_at": "2026-11-26T09:00:00+08:00",
+        "dispatched_at": "2026-11-26T09:00:08.969842+08:00",
+        "lateness_seconds": 9.0,
         "kind": "on_time"
       },
       "canonical_completions": [
-        "1f8ee5191412486c9318546b35ef3311"
+        "72b5b6fc19734271a010efad2399c51d"
       ],
       "last_failure": {
-        "at": "2026-11-22T09:00:20.397247+08:00",
-        "detail": "GatewayClientError: Gateway connection failed; no local fallback"
+        "at": "2026-11-25T10:13:48.672079+08:00",
+        "detail": "RuntimeError: HTTP 400: Request path cannot be relayed"
       }
     },
     {
@@ -136,36 +136,36 @@
       "schedule_display": "50 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 114
+        "completed": 117
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-31T10:11:17.754483+08:00",
-      "next_run_at": "2026-11-23T23:50:00+08:00",
-      "last_run_at": "2026-11-22T23:51:06.152745+08:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-11-26T23:50:00+08:00",
+      "last_run_at": "2026-11-25T23:50:35.461957+08:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 400: Request path cannot be relayed",
       "last_delivery_error": null,
       "deliver": "qqbot",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0,
+      "failure_streak": 2,
       "last_dispatch": {
-        "scheduled_at": "2026-11-22T23:50:00+08:00",
-        "dispatched_at": "2026-11-22T23:50:19.778207+08:00",
-        "lateness_seconds": 19.8,
+        "scheduled_at": "2026-11-25T23:50:00+08:00",
+        "dispatched_at": "2026-11-25T23:50:08.969301+08:00",
+        "lateness_seconds": 9.0,
         "kind": "on_time"
       },
       "canonical_completions": [
-        "cbc0d626a0c64300a1f9c69dde1bd087"
+        "42af60ed0e8343e8b0442990e93a7ffb"
       ],
       "last_failure": {
-        "at": "2026-11-19T23:51:10.364781+08:00",
-        "detail": "RuntimeError: HTTP 404: This model is unavailable for free. The paid version is available now - use this slug instead: thinkingmachines/inkling-2-small"
+        "at": "2026-11-25T23:50:35.461957+08:00",
+        "detail": "RuntimeError: HTTP 400: Request path cannot be relayed"
       }
     },
     {
@@ -195,17 +195,17 @@
       "schedule_display": "30 12 * * *",
       "repeat": {
         "times": null,
-        "completed": 123
+        "completed": 125
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-10T20:58:24.553786+08:00",
-      "next_run_at": "2026-11-24T12:30:00+08:00",
-      "last_run_at": "2026-11-23T12:32:39.612432+08:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-11-26T12:30:00+08:00",
+      "last_run_at": "2026-11-25T12:30:37.075715+08:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 400: Request path cannot be relayed",
       "last_delivery_error": null,
       "deliver": "qqbot",
       "origin": {
@@ -218,20 +218,20 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0,
+      "failure_streak": 1,
       "last_dispatch": {
-        "scheduled_at": "2026-11-23T12:30:00+08:00",
-        "dispatched_at": "2026-11-23T12:30:19.772734+08:00",
-        "lateness_seconds": 19.8,
+        "scheduled_at": "2026-11-25T12:30:00+08:00",
+        "dispatched_at": "2026-11-25T12:30:08.972569+08:00",
+        "lateness_seconds": 9.0,
         "kind": "on_time"
       },
       "interpreter": "/home/ecs-assist-user/.hermes/scripts/python3",
       "canonical_completions": [
-        "c0f264c2782f46e3b8f57fa724a23483"
+        "b52e8dd28ad746a68112776838deaaaf"
       ],
       "last_failure": {
-        "at": "2026-11-11T12:30:49.152621+08:00",
-        "detail": "RuntimeError: HTTP 404: This model's free period has ended. To continue using Beam 1.0, switch to 'reflection/beam-1.0-501b-a23b'."
+        "at": "2026-11-25T12:30:37.075715+08:00",
+        "detail": "RuntimeError: HTTP 400: Request path cannot be relayed"
       }
     },
     {
@@ -261,17 +261,17 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 112
+        "completed": 114
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-15T22:20:02.822658+08:00",
-      "next_run_at": "2026-11-24T14:00:00+08:00",
-      "last_run_at": "2026-11-23T14:01:09.768586+08:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-11-26T14:00:00+08:00",
+      "last_run_at": "2026-11-25T14:00:24.881615+08:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 400: Request path cannot be relayed",
       "last_delivery_error": null,
       "deliver": "qqbot",
       "origin": {
@@ -284,19 +284,19 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0,
+      "failure_streak": 1,
       "last_dispatch": {
-        "scheduled_at": "2026-11-23T14:00:00+08:00",
-        "dispatched_at": "2026-11-23T14:00:19.771520+08:00",
-        "lateness_seconds": 19.8,
+        "scheduled_at": "2026-11-25T14:00:00+08:00",
+        "dispatched_at": "2026-11-25T14:00:08.974349+08:00",
+        "lateness_seconds": 9.0,
         "kind": "on_time"
       },
       "last_failure": {
-        "at": "2026-11-11T14:01:11.283625+08:00",
-        "detail": "RuntimeError: HTTP 404: This model's free period has ended. To continue using Beam 1.0, switch to 'reflection/beam-1.0-501b-a23b'."
+        "at": "2026-11-25T14:00:24.881615+08:00",
+        "detail": "RuntimeError: HTTP 400: Request path cannot be relayed"
       },
       "canonical_completions": [
-        "e7c6760e9e864796a513b3b048d84812"
+        "02e8d32cd0ea43a2bbf64740550d4566"
       ]
     },
     {
@@ -322,39 +322,39 @@
       "schedule_display": "5 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 28
+        "completed": 30
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-10-29T12:23:03.044638+08:00",
-      "next_run_at": "2026-11-24T14:05:00+08:00",
-      "last_run_at": "2026-11-23T14:06:25.058378+08:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-11-26T14:05:00+08:00",
+      "last_run_at": "2026-11-25T14:05:14.989059+08:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 400: Request path cannot be relayed",
       "last_delivery_error": null,
       "last_delivery_unverified": null,
       "last_failure": {
-        "at": "2026-11-18T14:05:51.274715+08:00",
-        "detail": "GatewayUnavailableError: Gateway draining: update_paused"
+        "at": "2026-11-25T14:05:14.989059+08:00",
+        "detail": "RuntimeError: HTTP 400: Request path cannot be relayed"
       },
-      "failure_streak": 0,
+      "failure_streak": 1,
       "deliver": "qqbot",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "last_dispatch": {
-        "scheduled_at": "2026-11-23T14:05:00+08:00",
-        "dispatched_at": "2026-11-23T14:05:19.770802+08:00",
-        "lateness_seconds": 19.8,
+        "scheduled_at": "2026-11-25T14:05:00+08:00",
+        "dispatched_at": "2026-11-25T14:05:08.970790+08:00",
+        "lateness_seconds": 9.0,
         "kind": "on_time"
       },
       "fire_claim": null,
       "canonical_completions": [
-        "de421de927b54760b658ef3d5da415a6"
+        "931f015da3154cdab5b2fedbf52a3c01"
       ]
     }
   ],
-  "updated_at": "2026-11-23T14:06:25.993183+08:00"
+  "updated_at": "2026-11-26T09:00:37.915169+08:00"
 }

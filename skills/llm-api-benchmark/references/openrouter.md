@@ -51,3 +51,30 @@ agent 会话不需要任何额外设置。手动 `curl` 探针必须自己加上
 `:free` 模型有账户级每日额度，且与同一 key 上的其他用法共享。把多个 cron 任务
 指向同一个免费模型时，撞限流是正常现象，不是配置错误；换模型前先确认不是
 额度耗尽，否则会把限流当成模型失效再去换一个。
+
+## 推理链路整体故障：所有模型返回同一条不透明 400
+
+判定「平台推理层挂了」而不是「某个模型坏了 / 账号出问题」的特征组合：
+
+- **每一个**模型都返回同一条不透明 400（免费、付费、不同厂商一视同仁）；
+- 读接口照常 200：`GET /api/v1/models`、`GET /api/v1/key`、`GET /api/v1/credits`；
+- 错误响应头带 `x-openrouter-error-origin: client`，由 cloudflare 边缘返回。
+
+实测样例：`chat/completions`（流式与非流式）与 `responses` 全部返回
+`400 {"message":"Request path cannot be relayed"}`，而读接口 200 —— 请求确实
+到达了 OpenRouter，是它自己的转发（relay）层拒绝继续往下走。
+
+按顺序排除，别跳步：
+
+1. **换 3~4 个不同模型各打一次。** 全挂才继续；只有一个挂，那就是那个模型的事。
+2. **`GET /api/v1/key`** 看 `free_model_daily_requests.remaining` 与
+   `budgets` / `effective_budget`。额度与预算耗尽报的是 402/403，不是这条 400。
+3. **换 Cloudflare 边缘 IP**（`curl --resolve openrouter.ai:443:<ip>`）重打一遍，
+   排除 `/etc/hosts` 钉的那条已被过滤 —— 见 `references/cloudflare-ip-pinning.md`。
+4. **`hermes cron run <job_id>` 复现一次**，确认不是探针自身的问题。
+
+仍然全挂即为平台侧故障。此时**换模型名没有任何意义**（换多少条都是同一条错），
+正确动作是切 provider。同时拿错误原文去做 GitHub 代码搜索 + 社区论坛检索：
+这类故障通常已有人踩到并记下起始时间，比官方状态页可靠 —— 状态页很可能仍显示
+Operational。零散报告称换海外出口后恢复，但未证实，不要据此下结论、更不要建议
+对抗性绕行。
